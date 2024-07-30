@@ -41,7 +41,7 @@ Column(modifier = Modifier.fillMaxWidth().padding(8.dp),
             city = it
                             },
             label = {
-            Text(text = "Search for a city")
+            Text(text = "Search for a cityy")
             }
         )
         IconButton(onClick = { viewModel.getData(city) }) {
