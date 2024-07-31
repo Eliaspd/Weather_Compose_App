@@ -1,6 +1,6 @@
 package com.eliaspd.weather_compose_app.api
 
-import okhttp3.Response
+import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query
 
