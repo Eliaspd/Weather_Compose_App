@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -26,7 +27,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
+import coil.compose.AsyncImage
 import com.eliaspd.weather_compose_app.api.NetworkResponse
 import com.eliaspd.weather_compose_app.api.WeatherModel
 
@@ -103,6 +107,27 @@ fun WeatherDetails(data : WeatherModel) {
             Text(text = data.location.country, fontSize = 20.sp, color = Color.Gray)
 
         }
+
+        Spacer(modifier = Modifier.height(16.dp))
+        Text(
+            text = " ${data.current.temp_c} ° c",
+            fontSize = 56.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center
+        )
+
+        AsyncImage(
+            modifier = Modifier.size(160.dp),
+            model = "https:${data.current.condition.icon}".replace("64x64", "128x128"),
+            contentDescription = "Condition icon"
+        )
+
+        Text(
+            text = data.current.condition.text,
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+            color = Color.Gray
+        )
 
     }
 
